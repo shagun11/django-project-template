@@ -6,7 +6,7 @@ admin.autodiscover()
 urlpatterns = patterns('',
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', 'hu.views.home', name='home'),
-    url(r'^alltasks/','hu.views.get_tasks',name='get_tasks')
+    url(r'^tasks/','hu.views.get_tasks',name='get_tasks')
     
 )
 

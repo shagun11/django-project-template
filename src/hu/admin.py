@@ -1,9 +1,8 @@
 from django.contrib import admin
-from hu.models import Task
-
+from hu import models
 # admin.site.register(user)
-class TaskAdmin(admin.ModelAdmin):
-    pass 
 
-admin.site.register(Task,TaskAdmin)
+admin.site.register(models.Movie)
+admin.site.register(models.Director)
+admin.site.register(models.Genre)
 # Register your models her

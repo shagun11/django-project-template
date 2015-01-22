@@ -15,3 +15,6 @@ def get_tasks(request):
     t=Task.objects.all()
     return render(request,'task.html',{"tasks":t})
 
+def tasks_pending(request):
+    t=Task.objects.filter(task_status=0)
+    return render(request,'tasks_pending.html',{"tasks":t})

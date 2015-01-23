@@ -2,9 +2,12 @@ from django.http import HttpResponse
 import datetime
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render
+import models
 
 def home(request):
-    return HttpResponse("Home Page")
+    t = models.Movie.objects.order_by('-date')
+    t1 = models.Movie.objects.order_by('-added_at_time')
+    return render(request,'home.html',{"tasks":t,"tasks1":t1})
 
 def alltasks(request):
     

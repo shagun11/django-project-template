@@ -27,7 +27,7 @@ class Movie(models.Model):
     image_url = models.CharField(max_length=200)
     date = models.DateField()
     genre = models.ManyToManyField(Genre)
-    added_at_time = models.TimeField()
+    added_at_time = models.DateTimeField()
     added_by_user = models.ForeignKey(User)
     director = models.ForeignKey(Director)
     def __str__(self):              # __unicode__ on Python 2

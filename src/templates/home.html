@@ -15,7 +15,17 @@
 <th>Latest Release</th>
 </tr>
 {% for movie in tasks %}<tr>
-<td><a href='{{movie.image_url}}'><i><u><b>{{ movie.movie_name }}</b></u></i></a><br /> <b>Director</b>:{{ movie.director }}<br /><b>Genre:</b>{% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+<td><a href='http://127.0.0.1:8000/details/?mov_name={{movie.movie_name}}'><i><u><b>{{ movie.movie_name }}</b></u></i></a>&#9734;&#9734;&#9734;&#9734;&#9734;<br /> <b>Director</b>:{{ movie.director }}<br /><b>Genre:</b>{% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+<b>Rating:</b>
+<form action="" method='get'>{%csrf_token%}
+<select name='rating'>
+<option name='one' value='1'>1</option>
+<option name='two' value='2'>2</option>
+<option name='three' value='3'>3</option>
+<option name='four' value='4'>4</option>
+<option name='five' value='5'>5</option>
+</select> <button type="submit"><a href='/?name={{movie.movie_name}}&rating=2'>Rate This Movie</a></button>
+</form>
 </td>
 
 </tr>
@@ -29,9 +39,18 @@
 <th>Latest Addition</th>
 </tr>
 {% for movie in tasks1 %}<tr>
-<td><a href='{{movie.image_url}}'><i><u><b>{{ movie.movie_name }}</b></u></i></a><br /> <b>Director</b>:{{ movie.director }}<br /><b>Genre:</b>{% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+<td><a href='http://127.0.0.1:8000/details/?mov_name={{movie.movie_name}}'><i><u><b>{{ movie.movie_name }}</b></u></i></a>&#9734;&#9734;&#9734;&#9734;&#9734;<br /> <b>Director</b>:{{ movie.director }}<br /><b>Genre:</b>{% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+<b>Rating:</b>
+<form action="" method='get' id="form">{%csrf_token%}
+<select name='rating'>
+<option name='one' value='1'>1</option>
+<option name='two' value='2'>2</option>
+<option name='three' value='3'>3</option>
+<option name='four' value='4'>4</option>
+<option name='five' value='5'>5</option>
+</select> <button type="submit"><a href='/?name={{movie.movie_name}}&rating=2'>Rate This Movie</a></button>
+</form>
 </td>
-
 </tr>
 {% endfor %}
 </table>

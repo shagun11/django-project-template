@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Movie Detail</title>
+</head>
+<body>
+<h1>Movie Details</h1>
+{% for movie in movie_detail %}
+<img src={{movie.image_url}}><br>
+<p><b>Movie name: </b>{{movie.movie_name}}</p>
+<p><b>Director: </b>{{movie.director}}</p>
+<p><b>Genre: </b>
+{% for genre in movie.genre.all %}
+{{genre}}<br>
+{% endfor %}
+</p>
+{% endfor %}
+</body>
+</html>

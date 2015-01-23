@@ -37,5 +37,12 @@ class Movie(models.Model):
         ordering = ('movie_name',)
         unique_together = (('movie_name','date'),)
         
-    
+class Rating(models.Model):
+    movie = models.ForeignKey(Movie)
+    rating_count = models.IntegerField()
+    sum_rating = models.IntegerField()
+    def __str__(self):              # __unicode__ on Python 2
+        return self.movie
 
+    class Meta:
+        ordering = ('movie',)

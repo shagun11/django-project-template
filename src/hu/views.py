@@ -4,6 +4,8 @@ from django.db.models import Q
 from django.contrib.auth import authenticate, login
 from django.shortcuts import render
 import models
+import json
+import urllib2
 
 def home(request):
     name = request.GET.get('name')
@@ -40,7 +42,9 @@ def get_details(request):
     get_movie = request.GET.get('mov_name')
     movie_detail = models.Movie.objects.filter(movie_name=get_movie)
     genre_all = models.Genre.objects.filter()
-    return render(request, 'movieDetail.html', {"movie_detail":movie_detail, "genre_all":genre_all})
+    j = urllib2.urlopen(" http://www.omdbapi.com/?i=tt0816692")
+    j_obj = json.load(j)
+    return render(request, 'movieDetail.html', {"movie_detail":movie_detail, "genres_all":genre_all, "j_obj":j_obj})
 
 def search(request):
     get_movie_name = request.POST.get('search_name')

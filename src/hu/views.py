@@ -45,8 +45,9 @@ def get_details(request):
 def search(request):
     get_movie_name = request.POST.get('search_name')
     get_movie_date = request.POST.get('year')
-    print "vjhfjgkjkhvkglhl", get_movie_name
-    results = models.Movie.objects.filter(Q(movie_name__icontains=get_movie_name),Q(date__icontains=get_movie_date))
+    search_order = request.POST.get('searchOrder')
+    #print "vjhfjgkjkhvkglhl", get_movie_name
+    results = models.Movie.objects.filter(Q(movie_name__icontains=get_movie_name),Q(date__icontains=get_movie_date)).order_by(search_order)
     # print movie_search
     genre_all = models.Genre.objects.filter()
     return render(request, 'searchMovie.html', {"movie_search":results, "genre_all":genre_all})

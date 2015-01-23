@@ -56,12 +56,12 @@
 </table>
 		</td>
 		<td>
-		<form action="/search/" method="get" align="right">
+		<form action='http://127.0.0.1:8000/search/' method="post" align="right">{%csrf_token%}
 		<table>
 		<td><b><p>Search</p></b></td>
-		<tr><label><td>Name</td><td> <input type="text" name="q"></td></label></tr><br></br>
+		<tr><label><td>Name</td><td> <input type="text" name="search_name" placeholder="Search movie"></td></label></tr><br></br>
 		<tr> <label><td>Year</td>
-		<td><input type="text" name="q"></td></label></tr><br>
+		<td><input type="text" name="year" placeholder="Enter Year"></td></label></tr><br>
 		<tr><td><input type="checkbox"
 			name="thriller" value="Bike"></td><td align="left">Thriller</td></tr> 
 			<tr><td><input type="checkbox"
@@ -98,6 +98,7 @@
 			name="crime" value="Bike"></td><td align="left">Crime</td></tr>
 			<tr><td><input type="checkbox"
 			name="animation" value="Bike"></td><td align="left">Animation</td></tr>
+			<tr><td><button type="submit">Search</button></td></tr>
 		</table>
 	</form>
 		</td>

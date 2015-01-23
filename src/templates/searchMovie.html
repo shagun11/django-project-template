@@ -2,11 +2,12 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Movie Detail</title>
+<title>Movie Searching</title>
 </head>
 <body>
-	<h1>Movie Details</h1>
-	{% for movie in movie_detail %}
+	<h1>Searched query</h1>
+	{% for movie in movie_search %}
+	
 	<img src={{movie.image_url}}>
 	<br>
 	<p>

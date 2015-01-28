@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Home page</title>
+</head>
+<body>
+	<h1 align="center">Movies</h1>
+	<table width=100%>
+		<tr>
+		<td>
+		
+		<table border="1px">
+<tr>
+<th>Latest Release</th>
+</tr>
+{% for movie in tasks %}<tr>
+<td><a href='http://127.0.0.1:8000/details/?mov_name={{movie.movie_name}}'><i><u><b>{{ movie.movie_name }}</b></u></i></a>&#9734;&#9734;&#9734;&#9734;&#9734;<br /> <b>Director</b>:{{ movie.director }}<br /><b>Genre:</b>{% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+<b>Rating:</b>
+<form action="" method='get'>{%csrf_token%}
+<select name='rating'>
+<option name='one' value='1'>1</option>
+<option name='two' value='2'>2</option>
+<option name='three' value='3'>3</option>
+<option name='four' value='4'>4</option>
+<option name='five' value='5'>5</option>
+</select> <button type="submit"><a href='/?name={{movie.movie_name}}&rating=2'>Rate This Movie</a></button>
+</form>
+</td>
+
+</tr>
+{% endfor %}
+</table>
+		</td>
+		<td>
+		
+		<table border="1px">
+<tr>
+<th>Latest Addition</th>
+</tr>
+{% for movie in tasks1 %}<tr>
+<td><a href='http://127.0.0.1:8000/details/?mov_name={{movie.movie_name}}'><i><u><b>{{ movie.movie_name }}</b></u></i></a>&#9734;&#9734;&#9734;&#9734;&#9734;<br /> <b>Director</b>:{{ movie.director }}<br /><b>Genre:</b>{% for genre in movie.genre.all %} {{ genre }} {% endfor %}
+<b>Rating:</b>
+<form action="" method='get' id="form">{%csrf_token%}
+<select name='rating'>
+<option name='one' value='1'>1</option>
+<option name='two' value='2'>2</option>
+<option name='three' value='3'>3</option>
+<option name='four' value='4'>4</option>
+<option name='five' value='5'>5</option>
+</select> <button type="submit"><a href='/?name={{movie.movie_name}}&rating=2'>Rate This Movie</a></button>
+</form>
+</td>
+</tr>
+{% endfor %}
+</table>
+		</td>
+		<td>
+		<form action='http://127.0.0.1:8000/search/' method="post" align="right">{%csrf_token%}
+		<table>
+		<td><b><p>Search</p></b></td>
+		<tr><label><td>Name</td><td> <input type="text" name="search_name" placeholder="Search movie"></td></label></tr><br></br>
+		<tr> <label><td>Year</td>
+		<td><input type="text" name="year" placeholder="Enter Year"></td></label></tr><br>
+		<tr><td>
+		<select name='searchOrder'>
+<option name='one' value='movie_name'>Movie Name</option>
+<option name='two' value='date'>Release Date</option>
+<option name='two' value='added_at_time'>Addition Date</option>
+</select>
+		</td></tr>
+		<tr><td><input type="checkbox"
+			name="thriller" value="Bike"></td><td align="left">Thriller</td></tr> 
+			<tr><td><input type="checkbox"
+			name="comedy" value="Bike"></td><td align="left">Comedy</td></tr>
+			<tr><td><input type="checkbox"
+			name="adventure" value="Bike"></td><td align="left">Adventure</td></tr>
+			<tr><td><input type="checkbox"
+			name="romance" value="Bike"></td><td align="left">Romance</td></tr>
+			<tr><td><input type="checkbox"
+			name="action" value="Bike"></td><td align="left">Action</td></tr>
+			<tr><td><input type="checkbox"
+			name="unknown" value="Bike"></td><td align="left">unknown</td></tr>
+			<tr><td><input type="checkbox"
+			name="horror" value="Bike"></td><td align="left">Horror</td></tr>
+			<tr><td><input type="checkbox"
+			name="children's" value="Bike"></td><td align="left">Children's</td></tr>
+			<tr><td><input type="checkbox"
+			name="musical" value="Bike"></td><td align="left">Musical</td></tr>
+			<tr><td><input type="checkbox"
+			name="mystery" value="Bike"></td><td align="left">Mystery</td></tr>
+			<tr><td><input type="checkbox"
+			name="war" value="Bike"></td><td align="left">War</td></tr>
+			<tr><td><input type="checkbox"
+			name="western" value="Bike"></td><td align="left">Western</td></tr>
+			<tr><td><input type="checkbox"
+			name="sci-fi" value="Bike"></td><td align="left">Sci-fi</td></tr>
+			<tr><td><input type="checkbox"
+			name="film-noir" value="Bike"></td><td align="left">Film-noir</td></tr>
+			<tr><td><input type="checkbox"
+			name="drama" value="Bike"></td><td align="left">Drama</td></tr>
+			<tr><td><input type="checkbox"
+			name="documentry" value="Bike"></td><td align="left">Documentry</td></tr>
+			<tr><td><input type="checkbox"
+			name="crime" value="Bike"></td><td align="left">Crime</td></tr>
+			<tr><td><input type="checkbox"
+			name="animation" value="Bike"></td><td align="left">Animation</td></tr>
+			<tr><td><button type="submit">Search</button></td></tr>
+		</table>
+	</form>
+		</td>
+		</tr>
+	</table>
+</body>
+</html>

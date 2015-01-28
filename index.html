@@ -1,0 +1,61 @@
+<!doctype html>
+<html ng-app="movieStubApp">
+  <head>
+    <meta charset="utf-8" />
+    <title>Movie App</title>
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="shortcut icon" href="app/favicon.ico" />
+
+    <!-- bower:css -->
+    <link rel="stylesheet" href="lib/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+    
+    <link rel="stylesheet" href="app/css/app.css" />
+
+  </head>
+  <body class="container" ng-controller="movieStubController">
+    <div ng-include src="headerSrc"></div>
+    <div id="container">
+        <div>
+        	 <div class="col-lg-6">
+    <div class="input-group">
+      <input type="text" class="form-control" placeholder="Search for...">
+      <span class="input-group-btn">
+        <button class="btn btn-default" type="button">Go!</button>
+      </span>
+    </div><!-- /input-group -->
+  </div><!-- /.col-lg-6 -->
+</div><!-- /.row -->
+        </div>
+       
+        <div class="row">
+  <div class="col-xs-6 col-md-3">
+    <a href="#" class="thumbnail">
+      <img src="app/img/love.png" alt="...">
+    </a>
+     <a href="#" class="thumbnail">
+      <img src="app/img/sad.png" alt="...">
+    </a>
+     <a href="#" class="thumbnail">
+      <img src="app/img/sad.png" alt="...">
+    </a>
+  </div>
+  ...
+</div>
+    
+    <!-- bower:js -->
+    <script src="lib/jquery/dist/jquery.js"></script>
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="lib/angular-route/angular-route.js"></script>
+    <script src="lib/angular-resource/angular-resource.js"></script>
+    <script src="lib/angular-animate/angular-animate.js"></script>
+    <script src="lib/angular-mocks/angular-mocks.js"></script>
+    <!-- endbower -->
+
+    <script src="app/js/app.js"></script>
+    <script src="app/js/services/main.service.js"></script>
+    <script src="app/js/controllers/main.controller.js"></script>
+  </body>
+</html>
